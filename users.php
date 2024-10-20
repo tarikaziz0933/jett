@@ -112,7 +112,7 @@ $select_result = mysqli_query($db_connect, $select);
     <script>
     Swal.fire({
         title: "Updated!",
-        <?= $_SESSION['update']?>
+        text: "<?= $_SESSION['update']?>",
         icon: "success"
     });
     </script>
