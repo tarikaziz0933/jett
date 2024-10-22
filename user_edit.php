@@ -7,6 +7,8 @@ $select_user = "SELECT * FROM users WHERE id=$id";
 $select_user_result = mysqli_query($db_connect, $select_user);
 $after_assoc = mysqli_fetch_assoc($select_user_result);
 
+// print_r($select_user_result);
+// die();
 // echo $after_assoc['name'];
 
 

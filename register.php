@@ -69,6 +69,16 @@ session_start();
     </script>
     <?php } unset($_SESSION['success']) ?>
 
+    <?php if(isset($_SESSION['exist'])) { ?>
+    <script>
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "<?= $_SESSION['exist']?>",
+    });
+    </script>
+    <?php } unset($_SESSION['exist']) ?>
+
 
 </body>
 

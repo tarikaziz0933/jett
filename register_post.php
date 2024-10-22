@@ -10,7 +10,9 @@ $select_result = mysqli_query($db_connect, $select);
 $after_assoc = mysqli_fetch_assoc($select_result);
 
 if($after_assoc['gotit'] == 1){
-    echo 'already exit';
+    $_SESSION['exist'] = 'Email already exist';
+    header('location:register.php');
+    // echo 'already exit';
 }
 else{
     $insert = "INSERT INTO users(name,email,password) values('$name', '$email', '$password')";
@@ -18,8 +20,6 @@ else{
     $_SESSION['success'] = 'User added sucessfully';
     header('location:register.php');
 }
-
-
 
 
 ?>

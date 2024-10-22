@@ -1,8 +1,11 @@
 <?php
 session_start();
 require 'db.php';
-$select = "SELECT * FROM users";
+$select = "SELECT * FROM users WHERE status=0";
 $select_result = mysqli_query($db_connect, $select);
+
+$select_trash_user = "SELECT * FROM users WHERE status=1";
+$select_trashed_result = mysqli_query($db_connect, $select_trash_user);
 // print_r($select_result);
 ?>
 
@@ -48,6 +51,45 @@ $select_result = mysqli_query($db_connect, $select);
                                     <td>
                                         <a href="user_edit.php?id=<?=$user['id']?>" class="btn btn-info">Edit</a>
 
+                                        <button name="user_status.php?id=<?=$user['id']?>" type="button"
+                                            class="btn btn-danger status">Delete</button>
+                                    </td>
+                                </tr>
+
+                                <?php } ?>
+
+                                <?php if(mysqli_num_rows($select_result)==0){?>
+                                <tr>
+                                    <td colspan="4" class="text-center">No Data Found</td>
+                                </tr>
+                                <?php } ?>
+
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card mt-5">
+                        <div class="card-header">
+                            <h3>Trashed Users Informations</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Action</th>
+                                </tr>
+
+                                <?php foreach ($select_trashed_result as $key => $user){ ?>
+                                <tr>
+                                    <td><?=$key + 1?></td>
+                                    <td><?=$user['name']?></td>
+                                    <td><?=$user['email']?></td>
+                                    <td>
+                                        <a href="user_status.php?id=<?=$user['id']?>"
+                                            class="btn btn-success">Restore</a>
+
                                         <button name="delete.php?id=<?=$user['id']?>" type="button"
                                             class="btn btn-danger del">Delete</button>
                                     </td>
@@ -55,7 +97,7 @@ $select_result = mysqli_query($db_connect, $select);
 
                                 <?php } ?>
 
-                                <?php if(mysqli_num_rows($select_result)==0){?>
+                                <?php if(mysqli_num_rows($select_trashed_result)==0){?>
                                 <tr>
                                     <td colspan="4" class="text-center">No Data Found</td>
                                 </tr>
@@ -79,6 +121,25 @@ $select_result = mysqli_query($db_connect, $select);
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    $('.status').click(function() {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var link = $(this).attr('name');
+                window.location.href = link;
+            }
+        });
+    });
+    </script>
+
     <script>
     $('.del').click(function() {
         Swal.fire({
@@ -107,6 +168,16 @@ $select_result = mysqli_query($db_connect, $select);
     });
     </script>
     <?php } unset($_SESSION['delete']) ?>
+
+    <?php if(isset($_SESSION['status_changed'])) {?>
+    <script>
+    Swal.fire({
+        title: "tttttttt!",
+        text: "<?= $_SESSION['status_changed']?>",
+        icon: "warning"
+    });
+    </script>
+    <?php } unset($_SESSION['status_changed']) ?>
 
     <?php if(isset($_SESSION['update'])) {?>
     <script>
