@@ -22,7 +22,4 @@ else{
     header('location:users.php');
 }
 
-
-
-
 ?>

@@ -1,6 +1,8 @@
 <?php
 session_start();
+require 'session_check.php';
 require 'db.php';
+
 $select = "SELECT * FROM users WHERE status=0";
 $select_result = mysqli_query($db_connect, $select);
 
@@ -32,7 +34,7 @@ $select_trashed_result = mysqli_query($db_connect, $select_trash_user);
                 <div class="col-lg-8 m-auto">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Users Informations</h3>
+                            <h3>Users Informations <a href="logout.php" class="btn btn-danger float-end">Logout</a></h3>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
@@ -67,7 +69,7 @@ $select_trashed_result = mysqli_query($db_connect, $select_trash_user);
                             </table>
                         </div>
                     </div>
-
+                    <?php if(mysqli_num_rows($select_trashed_result)!=0){?>
                     <div class="card mt-5">
                         <div class="card-header">
                             <h3>Trashed Users Informations</h3>
@@ -106,6 +108,7 @@ $select_trashed_result = mysqli_query($db_connect, $select_trash_user);
                             </table>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -188,6 +191,26 @@ $select_trashed_result = mysqli_query($db_connect, $select_trash_user);
     });
     </script>
     <?php } unset($_SESSION['update']) ?>
+
+    <?php if(isset($_SESSION['logedin'])) {?>
+    <script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+    Toast.fire({
+        icon: "success",
+        title: "<?= $_SESSION['logedin']?>"
+    });
+    </script>
+    <?php } unset($_SESSION['logedin']) ?>
 
 </body>
 

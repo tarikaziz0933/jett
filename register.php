@@ -25,7 +25,7 @@ session_start();
 
 
                         <div class="card-body">
-                            <form action="register_post.php" method="POST">
+                            <form action="register_post.php" method="POST" enctype="multipart/form-data">
                                 <div class="mt-3">
                                     <label for="" class="form-label">Your Name</label>
                                     <input type="text" class="form-control" name="name" required>
@@ -38,6 +38,19 @@ session_start();
                                     <label for="" class="form-label">Your Password</label>
                                     <input type="password" class="form-control" name="password" required>
                                 </div>
+                                <div class="mt-3">
+
+                                    <input type="file" class="form-control" name="profile_picture">
+                                </div>
+
+                                <?php if(isset($_SESSION['extension'])){?>
+                                <strong class="text-danger"><?= $_SESSION['extension']?></strong>
+                                <?php } unset($_SESSION['extension'])?>
+
+                                <?php if(isset($_SESSION['size'])){?>
+                                <strong class="text-danger"><?= $_SESSION['size']?></strong>
+                                <?php } unset($_SESSION['size'])?>
+
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary">Regiser</button>
                                 </div>
