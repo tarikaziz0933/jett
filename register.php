@@ -40,7 +40,10 @@ session_start();
                                 </div>
                                 <div class="mt-3">
 
-                                    <input type="file" class="form-control" name="profile_picture">
+                                    <input type="file" class="form-control" name="profile_picture"
+                                        oninput="pic.src = window.URL.createObjectURL(this.files[0])">
+                                    <img id="pic" style="max-width: 200px; max-height: 200px;" alt="" />
+
                                 </div>
 
                                 <?php if(isset($_SESSION['extension'])){?>

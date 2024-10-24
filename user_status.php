@@ -7,8 +7,7 @@ $select = "SELECT * FROM users WHERE id=$id";
 $select_result = mysqli_query($db_connect, $select);
 $after_assoc = mysqli_fetch_assoc($select_result);
 
-// echo $after_assoc['status'];
-// die();
+
 if($after_assoc['status'] == 0){
     $query = "UPDATE users SET status=1 WHERE id=$id";
     $update_status_result = mysqli_query($db_connect, $query);

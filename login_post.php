@@ -15,7 +15,8 @@ if($email_check_result_assoc['email_count'] == 1){
     $get_email_data_result_assoc = mysqli_fetch_assoc($get_email_data_result);
 
     if(password_verify($password, $get_email_data_result_assoc['password'])){
-        $_SESSION['logedin'] = "Already logedin";
+        $_SESSION['check_login'] = "Login properly";
+        $_SESSION['login_msg'] = "Login successfull";
         header('location:users.php');
     }
     else{

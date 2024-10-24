@@ -15,17 +15,24 @@ if($after_assoc['gotit'] == 1){
     // echo 'already exit';
 }
 else{
+    $insert = "INSERT INTO users(name,email,password) values('$name', '$email', '$password')";
+    $insert_result = mysqli_query($db_connect, $insert);
+    $last_id = mysqli_insert_id($db_connect);
+    
     //picture upload
     $uploaded_file = $_FILES['profile_picture'];
     $uploaded_file_name = $uploaded_file['name'];
-    $after_explode = explode('.', $uploaded_file_name);
-    $extension = end($after_explode);
-    $allowed_extension =array('jpg', 'png', 'jpeg', 'gif');
-    if(in_array($extension, $allowed_extension)){
+    
+    if(isset($uploaded_file) && !empty($uploaded_file) && $uploaded_file['size'] != 0){
+        $after_explode = explode('.', $uploaded_file_name);
+        $extension = end($after_explode);
+        $allowed_extension =array('jpg', 'PNG', 'png', 'jpeg', 'gif');
+
+        // print_r($uploaded_file);
+        // die();
+        
+        if(in_array($extension, $allowed_extension)){
             if ($uploaded_file['size'] <= 3000720) {
-                $insert = "INSERT INTO users(name,email,password) values('$name', '$email', '$password')";
-                $insert_result = mysqli_query($db_connect, $insert);
-                $last_id = mysqli_insert_id($db_connect);
                 $file_name = $last_id. '.' .$extension;
                 $new_location = 'uploads/users/' .$file_name;
                 move_uploaded_file($uploaded_file['tmp_name'], $new_location);
@@ -35,21 +42,21 @@ else{
 
                 $_SESSION['success'] = 'User added sucessfully';
                 header('location:register.php');
-
-
-    
             } else {
                 $_SESSION['size'] = 'File Size Too Large, Max 7 KB';
                 header('location:register.php');
             }
-        }else{
-        $_SESSION['extension'] = 'Invalide Extension';
+        }
+        else{
+                $_SESSION['extension'] = 'Invalide Extension';
+                header('location:register.php');
+        }
+    }else{
+        $_SESSION['success'] = 'User added sucessfully';
         header('location:register.php');
     }
-
     // die();
-    
-    
+     
 }
 
 
