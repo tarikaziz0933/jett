@@ -1,3 +1,11 @@
+<?php
+    require '../db.php';
+    $id = $_SESSION['id'];
+    $select_profile_info = "SELECT * FROM users WHERE id=$id";
+    $select_profile_info_result = mysqli_query($db_connect, $select_profile_info);
+    $after_assoc_select_profile_info = mysqli_fetch_assoc($select_profile_info_result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,13 +40,13 @@
     <title>Starlight Responsive Bootstrap 4 Admin Template</title>
 
     <!-- vendor css -->
-    <link href="dashboard_assets/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="dashboard_assets/lib/Ionicons/css/ionicons.css" rel="stylesheet">
-    <link href="dashboard_assets/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="/jett/dashboard_assets/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/jett/dashboard_assets/lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="/jett/dashboard_assets/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
 
 
     <!-- Starlight CSS -->
-    <link rel="stylesheet" href="dashboard_assets/css/starlight.css">
+    <link rel="stylesheet" href="/jett/dashboard_assets/css/starlight.css">
 </head>
 
 <body>
@@ -55,7 +63,7 @@
 
         <label class="sidebar-label">Navigation</label>
         <div class="sl-sideleft-menu">
-            <a href="index.html" class="sl-menu-link">
+            <a href="/jett/dashboard.php" class="sl-menu-link">
                 <div class="sl-menu-item">
                     <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
                     <span class="menu-item-label">Dashboard</span>
@@ -75,7 +83,7 @@
                 </div><!-- menu-item -->
             </a><!-- sl-menu-link -->
             <ul class="sl-menu-sub nav flex-column">
-                <li class="nav-item"><a href="chart-morris.html" class="nav-link">View Users</a></li>
+                <li class="nav-item"><a href="/jett/users/users.php" class="nav-link">View Users</a></li>
                 <li class="nav-item"><a href="chart-flot.html" class="nav-link">Flot Charts</a></li>
 
             </ul>
@@ -98,17 +106,18 @@
             <nav class="nav">
                 <div class="dropdown">
                     <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-                        <span class="logged-name">Jane<span class="hidden-md-down"> Doe</span></span>
-                        <img src="dashboard_assets/img/img3.jpg" class="wd-32 rounded-circle" alt="">
+                        <span class="logged-name"><?= $after_assoc_select_profile_info['name']; ?></span>
+                        <img src="/jett/uploads/users/<?= $after_assoc_select_profile_info['profile_picture'];?>"
+                            class="wd-32 rounded-circle" alt="">
                     </a>
+
+
                     <div class="dropdown-menu dropdown-menu-header wd-200">
                         <ul class="list-unstyled user-profile-nav">
-                            <li><a href=""><i class="icon ion-ios-person-outline"></i> Edit Profile</a></li>
-                            <li><a href=""><i class="icon ion-ios-gear-outline"></i> Settings</a></li>
-                            <li><a href=""><i class="icon ion-ios-download-outline"></i> Downloads</a></li>
-                            <li><a href=""><i class="icon ion-ios-star-outline"></i> Favorites</a></li>
-                            <li><a href=""><i class="icon ion-ios-folder-outline"></i> Collections</a></li>
-                            <li><a href="logout.php"><i class="icon ion-power"></i> Sign Out</a></li>
+                            <li><a href="/jett/users/edit_profile.php"><i class="icon ion-ios-person-outline"></i> Edit
+                                    Profile</a></li>
+
+                            <li><a href="/jett/logout.php"><i class="icon ion-power"></i> Sign Out</a></li>
                         </ul>
                     </div><!-- dropdown-menu -->
                 </div><!-- dropdown -->

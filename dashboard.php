@@ -1,4 +1,7 @@
-<?php require 'dashboard_parts/header.php'?>
+<?php 
+session_start();
+require 'dashboard_parts/header.php';
+?>
 <!-- ########## START: MAIN PANEL ########## -->
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
