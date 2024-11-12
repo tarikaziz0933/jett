@@ -21,6 +21,7 @@ $select_trashed_result = mysqli_query($db_connect, $select_trash_user);
     </nav>
 
     <div class="sl-pagebody">
+        <?php if($after_assoc_select_profile_info['role'] != 4){?>
         <div class="row">
             <div class="col-lg-8 m-auto">
                 <div class="card">
@@ -117,6 +118,7 @@ $select_trashed_result = mysqli_query($db_connect, $select_trash_user);
                 <?php } ?>
             </div>
         </div>
+        <?php } ?>
     </div><!-- sl-page-title -->
 
 </div><!-- sl-pagebody -->

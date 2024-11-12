@@ -46,8 +46,7 @@ else{
                 $_SESSION['size'] = 'File Size Too Large, Max 7 KB';
                 header('location:register.php');
             }
-        }
-        else{
+        } else{
                 $_SESSION['extension'] = 'Invalide Extension';
                 header('location:register.php');
         }

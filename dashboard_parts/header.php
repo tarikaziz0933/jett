@@ -75,6 +75,8 @@
                     <span class="menu-item-label">Cards &amp; Widgets</span>
                 </div><!-- menu-item -->
             </a><!-- sl-menu-link -->
+
+            <?php if($after_assoc_select_profile_info['role'] != 4){ ?>
             <a href="#" class="sl-menu-link">
                 <div class="sl-menu-item">
                     <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
@@ -85,8 +87,8 @@
             <ul class="sl-menu-sub nav flex-column">
                 <li class="nav-item"><a href="/jett/users/users.php" class="nav-link">View Users</a></li>
                 <li class="nav-item"><a href="chart-flot.html" class="nav-link">Flot Charts</a></li>
-
             </ul>
+            <?php } ?>
 
         </div><!-- sl-sideleft-menu -->
 
