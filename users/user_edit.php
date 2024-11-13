@@ -87,7 +87,6 @@ $after_assoc = mysqli_fetch_assoc($select_user_result);
 
 <?php if(isset($_SESSION['update'])) { ?>
 <script>
-alert('hvhjvjh')
 Swal.fire({
     position: "top-end",
     icon: "update",

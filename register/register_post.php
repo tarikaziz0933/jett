@@ -4,6 +4,7 @@ require '../db.php';
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$role = $_POST['role'];
 
 $select = "SELECT COUNT(*) as gotit FROM users WHERE email='$email'";
 $select_result = mysqli_query($db_connect, $select);
@@ -15,7 +16,7 @@ if($after_assoc['gotit'] == 1){
     // echo 'already exit';
 }
 else{
-    $insert = "INSERT INTO users(name,email,password) values('$name', '$email', '$password')";
+    $insert = "INSERT INTO users(name,email,password,role) values('$name', '$email', '$password', '$role')";
     $insert_result = mysqli_query($db_connect, $insert);
     $last_id = mysqli_insert_id($db_connect);
     
