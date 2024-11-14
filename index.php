@@ -9,6 +9,12 @@ $select_banner_content_result_assoc = mysqli_fetch_assoc($select_banner_content_
 $select_banner_image = "SELECT * FROM banner_image WHERE status=1";
 $select_banner_image_result = mysqli_query($db_connect, $select_banner_image);
 $select_banner_image_result_assoc = mysqli_fetch_assoc($select_banner_image_result);
+
+
+// about section
+$select_about_content = "SELECT * FROM about_contents WHERE status=1";
+$select_about_content_result = mysqli_query($db_connect, $select_about_content);
+$select_about_content_result_assoc = mysqli_fetch_assoc($select_about_content_result);
 // print_r($select_banner_image_result_assoc);
 // die();
 ?>
@@ -180,15 +186,11 @@ $select_banner_image_result_assoc = mysqli_fetch_assoc($select_banner_image_resu
                     </div>
                     <div class="col-lg-6 pr-90">
                         <div class="section-title mb-25">
-                            <span>Introduction</span>
-                            <h2>About Me</h2>
+                            <span><?= $select_about_content_result_assoc['sub_title']?? 'Insert Please'?></span>
+                            <h2><?= $select_about_content_result_assoc['title']?? "Insert Please"?></h2>
                         </div>
                         <div class="about-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, sed repudiandae odit
-                                deserunt, quas
-                                quibusdam necessitatibus nesciunt eligendi esse sit non reprehenderit quisquam
-                                asperiores maxime
-                                blanditiis culpa vitae velit. Numquam!</p>
+                            <p><?= $select_about_content_result_assoc['descrp']?? 'Please Insert'?></p>
                             <h3>Education:</h3>
                         </div>
                         <!-- Education Item -->

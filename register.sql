@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 11:47 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Nov 14, 2024 at 02:02 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `register`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_contents`
+--
+
+CREATE TABLE `about_contents` (
+  `id` int(255) NOT NULL,
+  `sub_title` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `descrp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about_contents`
+--
+
+INSERT INTO `about_contents` (`id`, `sub_title`, `title`, `descrp`) VALUES
+(1, 'Molestias non eiusmo', 'Dolorum nisi minus a', 'Quam aut aliquip qua'),
+(2, 'Voluptate dolores ex', 'Aliqua Obcaecati no', 'Sed in in maiores te'),
+(3, 'Ea beatae quis facil', 'Et consequat Illum', 'Qui sit consequatur'),
+(4, 'Aut dolorum quod sit', 'Ea impedit eius bla', 'Voluptatem corporis'),
+(5, 'Aut dolorum quod sit', 'Ea impedit eius bla', 'Voluptatem corporis'),
+(6, 'Iste omnis omnis min', 'Sed dignissimos magn', 'Id soluta illum es'),
+(7, 'Dolores non cupidita', 'Ratione cillum ab as', 'Dicta quis sed cumqu');
 
 -- --------------------------------------------------------
 
@@ -41,8 +67,8 @@ CREATE TABLE `banner_contents` (
 
 INSERT INTO `banner_contents` (`id`, `sub_title`, `title`, `descrp`, `status`) VALUES
 (1, 'A sunt quis do digni', 'A incidunt aut ipsu', 'Enim laborum in cons', 0),
-(7, 'Omnis ducimus incid', 'Cumque excepteur nob', 'Minima reprehenderit', 1),
-(8, 'Dolores est quaerat ', 'Necessitatibus irure', 'Maxime unde qui reru', 0);
+(7, 'Omnis ducimus incid', 'Cumque excepteur nob', 'Minima reprehenderit', 0),
+(8, 'Dolores est quaerat ', 'Necessitatibus irure', 'Maxime unde qui reru', 1);
 
 -- --------------------------------------------------------
 
@@ -102,6 +128,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `profile_picture`, `stat
 --
 
 --
+-- Indexes for table `about_contents`
+--
+ALTER TABLE `about_contents`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `banner_contents`
 --
 ALTER TABLE `banner_contents`
@@ -122,6 +154,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `about_contents`
+--
+ALTER TABLE `about_contents`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `banner_contents`
