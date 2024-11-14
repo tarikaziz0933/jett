@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 02:02 PM
+-- Generation Time: Nov 14, 2024 at 02:12 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,21 +31,22 @@ CREATE TABLE `about_contents` (
   `id` int(255) NOT NULL,
   `sub_title` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `descrp` varchar(255) NOT NULL
+  `descrp` varchar(255) NOT NULL,
+  `status` int(20) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `about_contents`
 --
 
-INSERT INTO `about_contents` (`id`, `sub_title`, `title`, `descrp`) VALUES
-(1, 'Molestias non eiusmo', 'Dolorum nisi minus a', 'Quam aut aliquip qua'),
-(2, 'Voluptate dolores ex', 'Aliqua Obcaecati no', 'Sed in in maiores te'),
-(3, 'Ea beatae quis facil', 'Et consequat Illum', 'Qui sit consequatur'),
-(4, 'Aut dolorum quod sit', 'Ea impedit eius bla', 'Voluptatem corporis'),
-(5, 'Aut dolorum quod sit', 'Ea impedit eius bla', 'Voluptatem corporis'),
-(6, 'Iste omnis omnis min', 'Sed dignissimos magn', 'Id soluta illum es'),
-(7, 'Dolores non cupidita', 'Ratione cillum ab as', 'Dicta quis sed cumqu');
+INSERT INTO `about_contents` (`id`, `sub_title`, `title`, `descrp`, `status`) VALUES
+(1, 'Molestias non eiusmo', 'Dolorum nisi minus a', 'Quam aut aliquip qua', 1),
+(2, 'Voluptate dolores ex', 'Aliqua Obcaecati no', 'Sed in in maiores te', 0),
+(3, 'Ea beatae quis facil', 'Et consequat Illum', 'Qui sit consequatur', 0),
+(4, 'Aut dolorum quod sit', 'Ea impedit eius bla', 'Voluptatem corporis', 0),
+(5, 'Aut dolorum quod sit', 'Ea impedit eius bla', 'Voluptatem corporis', 0),
+(6, 'Iste omnis omnis min', 'Sed dignissimos magn', 'Id soluta illum es', 0),
+(7, 'Dolores non cupidita', 'Ratione cillum ab as', 'Dicta quis sed cumqu', 0);
 
 -- --------------------------------------------------------
 
