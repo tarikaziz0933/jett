@@ -12,7 +12,7 @@ require '../dashboard_parts/header.php'
     <div class="sl-pagebody">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 m-auto">
+                <div class="col-lg-6 m-auto">
                     <div class="card">
                         <div class="card-header">
                             <h3>Add Banner Content</h3>
@@ -33,6 +33,28 @@ require '../dashboard_parts/header.php'
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary">Add Content</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 m-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Add Banner Image</h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="add_banner_image.php" method="POST" enctype="multipart/form-data">
+                                <div class="mt-3">
+                                    <label for="" class="form-label">Banner Image</label>
+                                    <input type="file" name="banner_image" class="form-control"
+                                        oninput="pic.src = window.URL.createObjectURL(this.files[0])">
+                                    <img id="pic" style="max-width: 200px; max-height: 200px;" alt="" />
+                                </div>
+
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-primary">Add Image</button>
                                 </div>
                             </form>
                         </div>

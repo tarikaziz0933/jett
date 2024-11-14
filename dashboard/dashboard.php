@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require 'dashboard_parts/header.php';
+require '../dashboard_parts/header.php';
 ?>
 <!-- ########## START: MAIN PANEL ########## -->
 <div class="sl-mainpanel">
@@ -18,4 +18,4 @@ require 'dashboard_parts/header.php';
     </div><!-- sl-pagebody -->
 </div><!-- sl-mainpanel -->
 <!-- ########## END: MAIN PANEL ########## -->
-<?php require 'dashboard_parts/footer.php'?>
+<?php require '../dashboard_parts/footer.php'?>

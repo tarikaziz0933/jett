@@ -2,9 +2,15 @@
 require 'db.php';
 
 //banner-content;
-$select_banner_content = "SELECT * FROM banner_contents";
+$select_banner_content = "SELECT * FROM banner_contents WHERE status=1";
 $select_banner_content_result = mysqli_query($db_connect, $select_banner_content);
 $select_banner_content_result_assoc = mysqli_fetch_assoc($select_banner_content_result);
+
+$select_banner_image = "SELECT * FROM banner_image WHERE status=1";
+$select_banner_image_result = mysqli_query($db_connect, $select_banner_image);
+$select_banner_image_result_assoc = mysqli_fetch_assoc($select_banner_image_result);
+// print_r($select_banner_image_result_assoc);
+// die();
 ?>
 
 
@@ -153,7 +159,8 @@ $select_banner_content_result_assoc = mysqli_fetch_assoc($select_banner_content_
                     </div>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="banner-img text-right">
-                            <img src="img/banner/banner_img.png" alt="">
+                            <img src="uploads/banner_images/<?= $select_banner_image_result_assoc['banner_image']?>"
+                                alt="">
                         </div>
                     </div>
                 </div>
