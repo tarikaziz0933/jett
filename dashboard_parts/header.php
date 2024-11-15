@@ -111,9 +111,24 @@
             </a><!-- sl-menu-link -->
             <ul class="sl-menu-sub nav flex-column">
                 <li class="nav-item"><a href="/jett/about/add_about.php" class="nav-link">Add ABout Content</a></li>
-                <li class="nav-item"><a href="/jett/banners/view_banner.php" class="nav-link">View ABout Content</a>
+                <li class="nav-item"><a href="/jett/about/view_about.php" class="nav-link">View ABout Content</a>
                 </li>
             </ul>
+            <a href="#" class="sl-menu-link">
+                <div class="sl-menu-item">
+                    <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+                    <span class="menu-item-label">Education Section</span>
+                    <i class="menu-item-arrow fa fa-angle-down"></i>
+                </div><!-- menu-item -->
+            </a><!-- sl-menu-link -->
+            <ul class="sl-menu-sub nav flex-column">
+                <li class="nav-item"><a href="/jett/education/add_education.php" class="nav-link">Add Education
+                        Content</a></li>
+                <li class="nav-item"><a href="/jett/education/view_education.php" class="nav-link">View Education
+                        Content</a>
+                </li>
+            </ul>
+
 
         </div><!-- sl-sideleft-menu -->
 

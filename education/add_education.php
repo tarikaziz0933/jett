@@ -44,23 +44,23 @@ require '../dashboard_parts/header.php'
                 <div class="col-lg-6 m-auto">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Add About Content</h3>
+                            <h3>Add Education Content</h3>
                         </div>
                         <div class="card-body">
-                            <form action="add_about_post.php" method="POST">
+                            <form action="add_education_post.php" method="POST">
                                 <div class="mt-3">
-                                    <label for="" class="form-label">Sub Title</label>
-                                    <input type="text" name="sub_title" class="form-control"
+                                    <label for="" class="form-label">Passing Year</label>
+                                    <input type="date" name="passing_year" class="form-control"
                                         value="<?php echo isset($old_values['sub_title']) ? htmlspecialchars($old_values['sub_title']) : ''; ?>">
                                 </div>
                                 <div class="mt-3">
-                                    <label for="" class="form-label">Title</label>
-                                    <input type="text" name="title" class="form-control"
+                                    <label for="" class="form-label">Education Information</label>
+                                    <input type="text" name="education_info" class="form-control"
                                         value="<?php echo isset($old_values['title']) ? htmlspecialchars($old_values['title']) : ''; ?>">
                                 </div>
                                 <div class="mt-3">
-                                    <label for="" class="form-label">Description</label>
-                                    <input type="text" name="descrp" class="form-control"
+                                    <label for="" class="form-label">Experties</label>
+                                    <input type="number" name="experties" class="form-control"
                                         value="<?php echo isset($old_values['descrp']) ? htmlspecialchars($old_values['descrp']) : ''; ?>">
                                 </div>
                                 <div class="mt-3">
@@ -71,7 +71,7 @@ require '../dashboard_parts/header.php'
                     </div>
                 </div>
 
-                <div class="col-lg-6 m-auto">
+                <!-- <div class="col-lg-6 m-auto">
                     <div class="card">
                         <div class="card-header">
                             <h3>Add About Image</h3>
@@ -91,7 +91,7 @@ require '../dashboard_parts/header.php'
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

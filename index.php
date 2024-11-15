@@ -15,6 +15,14 @@ $select_banner_image_result_assoc = mysqli_fetch_assoc($select_banner_image_resu
 $select_about_content = "SELECT * FROM about_contents WHERE status=1";
 $select_about_content_result = mysqli_query($db_connect, $select_about_content);
 $select_about_content_result_assoc = mysqli_fetch_assoc($select_about_content_result);
+//about image
+$select_about_image = "SELECT * FROM about_images WHERE status=1";
+$select_about_image_result = mysqli_query($db_connect, $select_about_image);
+$select_about_image_result_assoc = mysqli_fetch_assoc($select_about_image_result);
+//about education
+$select_education_content = "SELECT * FROM about_contents WHERE status=1";
+$select_education_content_result = mysqli_query($db_connect, $select_education_content);
+$select_education_content_result_assoc = mysqli_fetch_assoc($select_education_content_result);
 // print_r($select_banner_image_result_assoc);
 // die();
 ?>
@@ -165,7 +173,8 @@ $select_about_content_result_assoc = mysqli_fetch_assoc($select_about_content_re
                     </div>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="banner-img text-right">
-                            <img src="uploads/banner_images/<?= $select_banner_image_result_assoc['banner_image']?>"
+                            <img class="w-100"
+                                src="uploads/banner_images/<?= $select_banner_image_result_assoc['banner_image']?>"
                                 alt="">
                         </div>
                     </div>
@@ -181,7 +190,8 @@ $select_about_content_result_assoc = mysqli_fetch_assoc($select_about_content_re
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="about-img">
-                            <img src="img/banner/banner_img2.png" title="me-01" alt="me-01">
+                            <img src="uploads/about_images/<?= $select_about_image_result_assoc['about_image'] ?>"
+                                title="me-01" alt="me-01">
                         </div>
                     </div>
                     <div class="col-lg-6 pr-90">
@@ -210,6 +220,7 @@ $select_about_content_result_assoc = mysqli_fetch_assoc($select_about_content_re
                         </div>
                         <!-- End Education Item -->
                         <!-- Education Item -->
+
                         <div class="education">
                             <div class="year">2016</div>
                             <div class="line"></div>
@@ -225,38 +236,8 @@ $select_about_content_result_assoc = mysqli_fetch_assoc($select_about_content_re
                             </div>
                         </div>
                         <!-- End Education Item -->
-                        <!-- Education Item -->
-                        <div class="education">
-                            <div class="year">2010</div>
-                            <div class="line"></div>
-                            <div class="location">
-                                <span>Bachelor of Computer Engineering</span>
-                                <div class="progressWrapper">
-                                    <div class="progress">
-                                        <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
-                                            data-wow-duration="2s" role="progressbar" style="width: 85%;"
-                                            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Education Item -->
-                        <!-- Education Item -->
-                        <div class="education">
-                            <div class="year">2005</div>
-                            <div class="line"></div>
-                            <div class="location">
-                                <span>Diploma of Computer</span>
-                                <div class="progressWrapper">
-                                    <div class="progress">
-                                        <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
-                                            data-wow-duration="2s" role="progressbar" style="width: 90%;"
-                                            aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Education Item -->
+
+
                     </div>
                 </div>
             </div>

@@ -53,6 +53,14 @@ require '../dashboard_parts/header.php'
                                     <img id="pic" style="max-width: 200px; max-height: 200px;" alt="" />
                                 </div>
 
+                                <?php if(isset($_SESSION['extension'])){?>
+                                <strong class="text-danger"><?= $_SESSION['extension']?></strong>
+                                <?php } unset($_SESSION['extension'])?>
+
+                                <?php if(isset($_SESSION['size'])){?>
+                                <strong class="text-danger"><?= $_SESSION['size']?></strong>
+                                <?php } unset($_SESSION['size'])?>
+
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary">Add Image</button>
                                 </div>

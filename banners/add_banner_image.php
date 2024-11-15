@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../db.php';
 
 $uploaded_file = $_FILES['banner_image'];
@@ -29,11 +30,11 @@ $uploaded_file_name = $uploaded_file['name'];
                 header('location:view_banner.php');
             } else {
                 $_SESSION['size'] = 'File Size Too Large, Max 7 KB';
-                header('location:view_banner.php');
+                header('location:add_banner.php');
             }
         } else{
                 $_SESSION['extension'] = 'Invalide Extension';
-                header('location:view_banner.php');
+                header('location:add_banner.php');
         }
     }else{
         $_SESSION['success'] = 'Banner Image added sucessfully';
