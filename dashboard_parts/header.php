@@ -206,7 +206,7 @@
                     <!-- loop ends here -->
                     <a href="" class="media-list-link">
                         <div class="media">
-                            <img src="../img/img4.jpg" class="wd-40 rounded-circle" alt="">
+                            <img src="" class="wd-40 rounded-circle" alt="">
                             <div class="media-body">
                                 <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Samantha Francis</p>
                                 <span class="d-block tx-11 tx-gray-500">3 hours ago</span>

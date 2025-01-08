@@ -22,13 +22,13 @@ if($email_check_result_assoc['email_count'] == 1){
         header('location:users/users.php');
     }
     else{
-        $_SESSION['email_doesnot_exitt'] = "Password not matched";
+        $_SESSION['doesnot_exitt'] = "Password not matched";
         header('location:login.php');
     }
 
 }
 else{
-    $_SESSION['email_doesnot_exitt'] = "EMail not found";
+    $_SESSION['doesnot_exitt'] = "EMail not found";
     header('location:login.php');
 }
 

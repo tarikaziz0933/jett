@@ -51,17 +51,17 @@ require '../dashboard_parts/header.php'
                                 <div class="mt-3">
                                     <label for="" class="form-label">Passing Year</label>
                                     <input type="date" name="passing_year" class="form-control"
-                                        value="<?php echo isset($old_values['sub_title']) ? htmlspecialchars($old_values['sub_title']) : ''; ?>">
+                                        value="<?php echo isset($old_values['passing_year']) ? htmlspecialchars($old_values['passing_year']) : ''; ?>">
                                 </div>
                                 <div class="mt-3">
                                     <label for="" class="form-label">Education Information</label>
                                     <input type="text" name="education_info" class="form-control"
-                                        value="<?php echo isset($old_values['title']) ? htmlspecialchars($old_values['title']) : ''; ?>">
+                                        value="<?php echo isset($old_values['education_info']) ? htmlspecialchars($old_values['education_info']) : ''; ?>">
                                 </div>
                                 <div class="mt-3">
                                     <label for="" class="form-label">Experties</label>
                                     <input type="number" name="experties" class="form-control"
-                                        value="<?php echo isset($old_values['descrp']) ? htmlspecialchars($old_values['descrp']) : ''; ?>">
+                                        value="<?php echo isset($old_values['experties']) ? htmlspecialchars($old_values['experties']) : ''; ?>">
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary">Add Content</button>

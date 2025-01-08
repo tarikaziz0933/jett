@@ -56,7 +56,7 @@ session_start();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <?php if(isset($_SESSION['email_doesnot_exitt'])) {?>
+    <?php if(isset($_SESSION['doesnot_exitt'])) {?>
     <script>
     const Toast = Swal.mixin({
         toast: true,
@@ -71,10 +71,10 @@ session_start();
     });
     Toast.fire({
         icon: "error",
-        title: "<?= $_SESSION['email_doesnot_exitt']?>"
+        title: "<?= $_SESSION['doesnot_exitt']?>"
     });
     </script>
-    <?php } unset($_SESSION['email_doesnot_exitt']) ?>
+    <?php } unset($_SESSION['doesnot_exitt']) ?>
 
 </body>
 

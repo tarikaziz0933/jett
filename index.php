@@ -20,10 +20,10 @@ $select_about_image = "SELECT * FROM about_images WHERE status=1";
 $select_about_image_result = mysqli_query($db_connect, $select_about_image);
 $select_about_image_result_assoc = mysqli_fetch_assoc($select_about_image_result);
 //about education
-$select_education_content = "SELECT * FROM about_contents WHERE status=1";
+$select_education_content = "SELECT * FROM education_contents WHERE status=1";
 $select_education_content_result = mysqli_query($db_connect, $select_education_content);
-$select_education_content_result_assoc = mysqli_fetch_assoc($select_education_content_result);
-// print_r($select_banner_image_result_assoc);
+// $select_education_content_result_assoc = mysqli_fetch_assoc($select_education_content_result);
+// print_r($select_education_content_result);
 // die();
 ?>
 
@@ -91,6 +91,8 @@ $select_education_content_result_assoc = mysqli_fetch_assoc($select_education_co
                                 <div class="collapse navbar-collapse" id="navbarNav">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
+                                        <li class="nav-item"><a href="/jett/users/users.php" class="nav-link">View
+                                                Users</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#about">about</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#service">service</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#portfolio">portfolio</a></li>
@@ -204,37 +206,24 @@ $select_education_content_result_assoc = mysqli_fetch_assoc($select_education_co
                             <h3>Education:</h3>
                         </div>
                         <!-- Education Item -->
+                        <?php foreach($select_education_content_result as $select_education_content){ ?>
                         <div class="education">
-                            <div class="year">2020</div>
+                            <div class="year">
+                                <?= $select_education_content['passing_year']?? 'Insert Please'?></div>
                             <div class="line"></div>
                             <div class="location">
-                                <span>PHD of Interaction Design &amp; Animation</span>
+                                <span><?= $select_education_content['education_info']?? 'Insert Please'?></span>
                                 <div class="progressWrapper">
                                     <div class="progress">
                                         <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
-                                            data-wow-duration="2s" role="progressbar" style="width: 65%;"
+                                            data-wow-duration="2s" role="progressbar"
+                                            style="width: <?= $select_education_content['experties']?? 'Insert Please'?>%;"
                                             aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- End Education Item -->
-                        <!-- Education Item -->
-
-                        <div class="education">
-                            <div class="year">2016</div>
-                            <div class="line"></div>
-                            <div class="location">
-                                <span>Master of Database Administration</span>
-                                <div class="progressWrapper">
-                                    <div class="progress">
-                                        <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
-                                            data-wow-duration="2s" role="progressbar" style="width: 75%;"
-                                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                         <!-- End Education Item -->
 
 

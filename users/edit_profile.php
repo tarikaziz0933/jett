@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require '../session_check.php';
 require '../dashboard_parts/header.php'
 ?>
 <div class="sl-mainpanel">
