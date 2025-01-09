@@ -35,16 +35,16 @@ $select_icon_result = mysqli_query($db_connect, $select_icon);
                                     <?php foreach($select_icon_result as $key => $icon){ ?>
                                     <tr>
                                         <td><?= $key+1?></td>
-                                        <td><?= $icon['icon_class']?></td>
-                                        <td><?= $icon['link']?></td>
+                                        <td><i class="fa <?= $icon['icon_class']?>"></i></td>
+                                        <td><a href="<?= $icon['link']?>"><?= $icon['link']?></a></td>
                                         <td>
                                             <!-- process---2 -->
-                                            <a href="banner_status.php?id=<?= $icon['id']?>"
+                                            <a href="icon_status.php?id=<?= $icon['id']?>"
                                                 class="btn btn-<?= ($icon['status'] == 1) ? 'success':'secondary'?>"><?= ($icon['status'] == 1? 'Active' : 'Deactive') ?></a>
 
                                         </td>
                                         <td>
-                                            <a href="delete_banner.php?id=<?=$icon['id']?>"
+                                            <a href="delete_social_icon.php?id=<?=$icon['id']?>"
                                                 class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
@@ -64,3 +64,12 @@ $select_icon_result = mysqli_query($db_connect, $select_icon);
 <?php 
 require '../dashboard_parts/footer.php'
 ?>
+<?php if(isset($_SESSION['limit'])){?>
+<script>
+Swal.fire({
+    title: "oooops!",
+    text: "<?= $_SESSION['limit']?>",
+    icon: "error"
+});
+</script>
+<?php } unset($_SESSION['limit']) ?>

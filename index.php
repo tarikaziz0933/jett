@@ -25,6 +25,10 @@ $select_education_content_result = mysqli_query($db_connect, $select_education_c
 // $select_education_content_result_assoc = mysqli_fetch_assoc($select_education_content_result);
 // print_r($select_education_content_result);
 // die();
+
+//Social icon
+$select_icon = "SELECT * FROM social_link WHERE status=1";
+$select_icon_result = mysqli_query($db_connect, $select_icon);
 ?>
 
 
@@ -164,10 +168,11 @@ $select_education_content_result = mysqli_query($db_connect, $select_education_c
                                 <?= $select_banner_content_result_assoc['descrp']?></p>
                             <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                 <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                    <?php foreach($select_icon_result as $icon){?>
+                                    <li><a href="<?= $icon['link']?>" target="_blank"><i
+                                                class="fab <?= $icon['icon_class']?>"></i></a>
+                                    </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                             <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
