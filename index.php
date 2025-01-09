@@ -29,6 +29,14 @@ $select_education_content_result = mysqli_query($db_connect, $select_education_c
 //Social icon
 $select_icon = "SELECT * FROM social_link WHERE status=1";
 $select_icon_result = mysqli_query($db_connect, $select_icon);
+
+//Contact Info
+$contact_informations = "SELECT * FROM contact_info";
+$contact_informations_result = mysqli_query($db_connect, $contact_informations);
+$contact_informations_assoc = mysqli_fetch_assoc($contact_informations_result);
+// print_r($contact_informations_assoc);
+// die();
+
 ?>
 
 
@@ -127,23 +135,21 @@ $select_icon_result = mysqli_query($db_connect, $select_icon);
             <div class="side-info mb-30">
                 <div class="contact-list mb-30">
                     <h4>Office Address</h4>
-                    <p>123/A, Miranda City Likaoli
-                        Prikano, Dope</p>
+                    <p><?= $contact_informations_assoc['address']?></p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Phone Number</h4>
-                    <p>+0989 7876 9865 9</p>
+                    <p><?= $contact_informations_assoc['number']?></p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Email Address</h4>
-                    <p>info@example.com</p>
+                    <p><?= $contact_informations_assoc['email']?></p>
                 </div>
             </div>
             <div class="social-icon-right mt-20">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <?php foreach($select_icon_result as $icon){?>
+                <a href="<?= $icon['link']?>" target="_blank"><i class="fab <?= $icon['icon_class']?>"></i></a>
+                <?php } ?>
             </div>
         </div>
         <div class="offcanvas-overly"></div>
