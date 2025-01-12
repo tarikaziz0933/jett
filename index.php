@@ -34,8 +34,15 @@ $select_icon_result = mysqli_query($db_connect, $select_icon);
 $contact_informations = "SELECT * FROM contact_info";
 $contact_informations_result = mysqli_query($db_connect, $contact_informations);
 $contact_informations_assoc = mysqli_fetch_assoc($contact_informations_result);
-// print_r($contact_informations_assoc);
-// die();
+
+//Services
+$select_service = "SELECT * FROM services WHERE status=1";
+$select_service_result = mysqli_query($db_connect, $select_service);
+
+//Logo
+$select = "SELECT * FROM logos WHERE status=1";
+$select_result = mysqli_query($db_connect, $select);
+$select_result_assoc = mysqli_fetch_assoc($select_result);
 
 ?>
 
@@ -90,10 +97,10 @@ $contact_informations_assoc = mysqli_fetch_assoc($contact_informations_result);
                     <div class="col-xl-12">
                         <div class="main-menu">
                             <nav class="navbar navbar-expand-lg">
-                                <a href="index.html" class="navbar-brand logo-sticky-none"><img src="img/logo/logo.png"
-                                        alt="Logo"></a>
-                                <a href="index.html" class="navbar-brand s-logo-none"><img src="img/logo/s_logo.png"
-                                        alt="Logo"></a>
+                                <a href="index.html" class="navbar-brand logo-sticky-none w-50"><img
+                                        src="../jett/uploads/logo/<?=$select_result_assoc['logo']?>" alt="Logo"></a>
+                                <a href="index.html" class="navbar-brand s-logo-none"><img
+                                        src="../jett/uploads/logo/<?=$select_result_assoc['logo']?>" alt="Logo"></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarNav">
                                     <span class="navbar-icon"></span>
@@ -129,7 +136,7 @@ $contact_informations_assoc = mysqli_fetch_assoc($contact_informations_result);
             </div>
             <div class="logo-side mb-30">
                 <a href="index-2.html">
-                    <img src="img/logo/logo.png" alt="" />
+                    <img src="../jett/uploads/logo/<?=$select_result_assoc['logo']?>" alt="" />
                 </a>
             </div>
             <div class="side-info mb-30">
@@ -229,7 +236,8 @@ $contact_informations_assoc = mysqli_fetch_assoc($contact_informations_result);
                                         <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
                                             data-wow-duration="2s" role="progressbar"
                                             style="width: <?= $select_education_content['experties']?? 'Insert Please'?>%;"
-                                            aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            aria-valuenow="<?= $select_education_content['experties']?? 'Insert Please'?>"
+                                            aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
@@ -256,66 +264,15 @@ $contact_informations_assoc = mysqli_fetch_assoc($contact_informations_result);
                     </div>
                 </div>
                 <div class="row">
+                    <?php foreach($select_service_result as $service):?>
                     <div class="col-lg-4 col-md-6">
                         <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-                            <i class="fab fa-react"></i>
-                            <h3>Creative Design</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                indust.
-                            </p>
+                            <i class="fab <?= $service['service_icon']?>"></i>
+                            <h3><?= $service['title']?></h3>
+                            <p><?= $service['decrp']?></p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.4s">
-                            <i class="fab fa-free-code-camp"></i>
-                            <h3>Unlimited Features</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                indust.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.6s">
-                            <i class="fal fa-desktop"></i>
-                            <h3>Ultra Responsive</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                indust.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-                            <i class="fal fa-lightbulb-on"></i>
-                            <h3>Creative Ideas</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                indust.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.4s">
-                            <i class="fal fa-edit"></i>
-                            <h3>Easy Customization</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                indust.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.6s">
-                            <i class="fal fa-headset"></i>
-                            <h3>Supper Support</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                indust.
-                            </p>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </section>

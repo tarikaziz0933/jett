@@ -156,6 +156,30 @@
                         Content</a>
                 </li>
             </ul>
+            <a href="#" class="sl-menu-link">
+                <div class="sl-menu-item">
+                    <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+                    <span class="menu-item-label">Services</span>
+                    <i class="menu-item-arrow fa fa-angle-down"></i>
+                </div><!-- menu-item -->
+            </a><!-- sl-menu-link -->
+            <ul class="sl-menu-sub nav flex-column">
+                <li class="nav-item"><a href="/jett/services/add_service.php" class="nav-link">Add Service</a></li>
+                <li class="nav-item"><a href="/jett/services/view_service.php" class="nav-link">View Service</a>
+                </li>
+            </ul>
+            <a href="#" class="sl-menu-link">
+                <div class="sl-menu-item">
+                    <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+                    <span class="menu-item-label">Logo</span>
+                    <i class="menu-item-arrow fa fa-angle-down"></i>
+                </div><!-- menu-item -->
+            </a><!-- sl-menu-link -->
+            <ul class="sl-menu-sub nav flex-column">
+                <li class="nav-item"><a href="/jett/logo/add_logo.php" class="nav-link">Add Logo</a></li>
+                <li class="nav-item"><a href="/jett/logo/view_logo.php" class="nav-link">View Logo</a>
+                </li>
+            </ul>
 
 
         </div><!-- sl-sideleft-menu -->

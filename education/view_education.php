@@ -41,7 +41,7 @@ $select_education_content_result = mysqli_query($db_connect, $select_education_c
             <div class="row">
                 <div class="col-lg-8 mt-3">
                     <div class="card">
-                        <div class="card-header">About Content List</div>
+                        <div class="card-header">View Education List</div>
                         <div class="card-body">
                             <table class="table table-border">
                                 <thead>
