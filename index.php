@@ -44,6 +44,14 @@ $select = "SELECT * FROM logos WHERE status=1";
 $select_result = mysqli_query($db_connect, $select);
 $select_result_assoc = mysqli_fetch_assoc($select_result);
 
+//Clients
+$select_client = "SELECT * FROM clients WHERE status=1";
+$select_client_result = mysqli_query($db_connect, $select_client);
+
+//Feedback
+$select_feedback = "SELECT * FROM feedbacks";
+$select_feedback_res = mysqli_query($db_connect, $select_feedback);
+
 ?>
 
 
@@ -437,34 +445,21 @@ $select_result_assoc = mysqli_fetch_assoc($select_result);
                 <div class="row justify-content-center">
                     <div class="col-xl-9 col-lg-10">
                         <div class="testimonial-active">
+                            <?php foreach($select_feedback_res as $feedback):?>
                             <div class="single-testimonial text-center">
                                 <div class="testi-avatar">
-                                    <img src="img/images/testi_avatar.png" alt="img">
+                                    <img width="100px" height="100px" style="border-radius: 50%;"
+                                        src="uploads/feedback/<?=$feedback['image']?>" alt="img">
                                 </div>
                                 <div class="testi-content">
-                                    <h4><span>“</span> An event is a message sent by an object to signal the occur rence
-                                        of an action. The action can causd user interaction such as a button click, or
-                                        it can result <span>”</span></h4>
+                                    <h4><span>“</span> <?=$feedback['descrp']?> <span>”</span></h4>
                                     <div class="testi-avatar-info">
-                                        <h5>tonoy jakson</h5>
-                                        <span>head of idea</span>
+                                        <h5><?=$feedback['name']?></h5>
+                                        <span><?=$feedback['designation']?></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="single-testimonial text-center">
-                                <div class="testi-avatar">
-                                    <img src="img/images/testi_avatar.png" alt="img">
-                                </div>
-                                <div class="testi-content">
-                                    <h4><span>“</span> An event is a message sent by an object to signal the occur rence
-                                        of an action. The action can causd user interaction such as a button click, or
-                                        it can result <span>”</span></h4>
-                                    <div class="testi-avatar-info">
-                                        <h5>tonoy jakson</h5>
-                                        <span>head of idea</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endforeach?>
                         </div>
                     </div>
                 </div>
@@ -475,37 +470,14 @@ $select_result_assoc = mysqli_fetch_assoc($select_result);
         <!-- brand-area -->
         <div class="barnd-area pt-100 pb-100">
             <div class="container">
-                <div class="row brand-active">
-                    <div class="col-xl-2">
+                <div class="row brand-active m-auto">
+                    <?php foreach($select_client_result as $client):?>
+                    <div class="col-xl-6">
                         <div class="single-brand">
-                            <img src="img/brand/brand_img01.png" alt="img">
+                            <img width="100px" src="uploads/client/<?=$client['client']?>" alt="img">
                         </div>
                     </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="img/brand/brand_img02.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="img/brand/brand_img03.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="img/brand/brand_img04.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="img/brand/brand_img05.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <div class="single-brand">
-                            <img src="img/brand/brand_img03.png" alt="img">
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>

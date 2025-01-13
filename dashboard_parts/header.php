@@ -180,6 +180,30 @@
                 <li class="nav-item"><a href="/jett/logo/view_logo.php" class="nav-link">View Logo</a>
                 </li>
             </ul>
+            <a href="#" class="sl-menu-link">
+                <div class="sl-menu-item">
+                    <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+                    <span class="menu-item-label">Clients</span>
+                    <i class="menu-item-arrow fa fa-angle-down"></i>
+                </div><!-- menu-item -->
+            </a><!-- sl-menu-link -->
+            <ul class="sl-menu-sub nav flex-column">
+                <li class="nav-item"><a href="/jett/clients/add_client_image.php" class="nav-link">Add Client</a></li>
+                <li class="nav-item"><a href="/jett/clients/view_client_image.php" class="nav-link">View Client</a>
+                </li>
+            </ul>
+            <a href="#" class="sl-menu-link">
+                <div class="sl-menu-item">
+                    <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+                    <span class="menu-item-label">Feedback</span>
+                    <i class="menu-item-arrow fa fa-angle-down"></i>
+                </div><!-- menu-item -->
+            </a><!-- sl-menu-link -->
+            <ul class="sl-menu-sub nav flex-column">
+                <li class="nav-item"><a href="/jett/feedback/add_feedback.php" class="nav-link">Add Feedback</a></li>
+                <li class="nav-item"><a href="/jett/feedback/view_feedback.php" class="nav-link">View Feedback</a>
+                </li>
+            </ul>
 
 
         </div><!-- sl-sideleft-menu -->
